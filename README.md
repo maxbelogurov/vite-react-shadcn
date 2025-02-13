@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# Vite + React + Shadcn
 
 Clear template with shadcn library.
 
