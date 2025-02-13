@@ -1,13 +1,29 @@
-import { Button } from "./components/ui/button"
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+
+import MainLayout from '@/layots/MainLayout';
+
+import HomePage from '@/pages/HomePage';
+import DemoPage from '@/pages/DemoPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout/>,
+    children: [
+      {
+        index: true,
+        element: <HomePage/>
+      },
+      {
+        path: 'demo',
+        element: <DemoPage/>
+      }
+    ]
+  },
+]);
 
 export default function App() {
   return (
-    <div className="p-3">
-      <h1 className="text-3xl mb-3">Vite + React</h1>
-      <p className="mb-3">
-        Clear project with shadcn library
-      </p>
-        <Button variant="outline">Shadcn button</Button>
-    </div>
+      <RouterProvider router={router}/>
   )
 }
